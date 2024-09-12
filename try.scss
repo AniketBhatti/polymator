@@ -1,0 +1,78 @@
+.benefit-card-list {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  
+    .benefit-card {
+      border-radius: 20px;
+      background-color: transparent;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 40px;
+      height: 450px;
+      width: 400px;
+      position: relative; // To position the pseudo-elements correctly
+      transition: border-top 0.3s;
+  
+      img {
+        width: 110px;
+        margin-bottom: 30px;
+      }
+  
+      h3 {
+        margin-bottom: 5px;
+        width: 90%;
+      }
+  
+      p {
+        width: 90%;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 500;
+      }
+  
+      // Border-top for each card
+      &:nth-of-type(1) {
+        border-top: 1px solid #f6af5b;
+      }
+  
+      &:nth-of-type(2) {
+        border-top: 1px solid #7968ed;
+      }
+  
+      &:nth-of-type(3) {
+        border-top: 1px solid #c25dfe;
+      }
+  
+      // Pseudo-element for the left border with initial height of 50%
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 50%; // Initial height
+        width: 4px; // Width of the border
+        background: currentColor; // Inherits the color of the border-top
+        transition: height 0.3s ease; // Smooth transition on hover
+      }
+  
+      // Pseudo-element for the right border with initial height of 50%
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 50%; // Initial height
+        width: 4px; // Width of the border
+        background: currentColor; // Inherits the color of the border-top
+        transition: height 0.3s ease; // Smooth transition on hover
+      }
+  
+      // Hover effect to expand left and right borders
+      &:hover::before,
+      &:hover::after {
+        height: 90%; // Expands the border height to 90% on hover
+      }
+    }
+  }
